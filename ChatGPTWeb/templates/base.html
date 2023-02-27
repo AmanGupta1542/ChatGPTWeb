@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include 'includes/head.html' %}
+</head>
+<body>
+
+    
+    <div id="base-container">
+        {% include 'includes/nav.html' %}
+
+        
+        {% block child_block %}
+        {% endblock %}
+    </div>
+
+    {% include 'includes/foot.html' %}
+</body>
+</html>

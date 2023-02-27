@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block child_block %}
+
+<div class="login p-3 shadow" style="background-color: white;">
+    <h1>login</h1>
+    <form method="post">
+        {% csrf_token %}
+        {% for message in messages %}
+           {% if 'notmatch' in message.tags %}
+             <div class="form-group" >
+               <span class="text-danger text-start" class="form-label">{{message}}</span>
+              </div>
+           {% endif %}
+         {% endfor %}
+        <div class="mb-3">
+            <label for="username" class="form-label">Username</label>
+            <input type="text" class="form-control" name="username" id="username" placeholder="Enter your username">
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" name="password" id="password" placeholder="Enter your password">
+        </div>
+        <button type="submit" class="btn btn-outline-primary">Login</button>
+    </form>
+</div>
+{% endblock %}

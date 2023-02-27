@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+
+{% block child_block %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    .chat-container{
+        display: flex;
+        flex-direction: column;
+        background-color: dodgerblue;
+        height: calc(100vh - 60px);
+        /* height: 500px; */
+        border: 1px solid dodgerblue;
+    }
+    .chat-container header{
+        font-size: 28px;
+        font-weight: bold;
+        padding: 10px;
+        color: white;
+    }
+
+    .chat-container .body{
+        flex: 1;
+        background-color: whitesmoke;
+        padding: 10px;
+    }
+
+    .chat-container .body .message{
+        word-wrap: break-word;
+        width: fit-content;
+        max-width: 80%;
+        padding: 10px;
+        border-radius: 10px;
+        margin-bottom: 15px;
+        color: white;
+        background-color: dodgerblue;
+    }
+    
+    .chat-container .body .user-message{
+        margin-left: auto;
+        color: black;
+        background-color: white;
+    }
+
+    .chat-container footer{
+    }
+    .chat-container footer form{
+        display: flex;
+    }
+    .chat-container footer form input{
+        flex-grow: 1;
+        height: 40px;
+        border: none;
+        outline: none;
+        padding-left: 5px;
+        font-size: 16px;
+    }
+
+    .chat-container footer form button{
+        flex-basis: 50px;
+        outline: none;
+        border: none;
+        background-color: dodgerblue;
+        color: white;
+        font-size: 18px;
+    }
+
+
+
+</style>
+
+
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-8">
+            <div class="chat-container">
+            
+                <header>Chat GPT Web</header>
+                <div class="body">
+                        <div class="message">1</div>
+                        <div class="message user-message">2</div>
+
+                        <div class="message">3</div>
+                        <div class="message user-message">4</div>
+                </div>
+                <footer>
+                    <form action="">
+                        <input type="text" name="query" placeholder="Ask anything">
+                        <button>
+                            <i class="fa fa-sharp fa-solid fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </footer>
+            
+            
+            
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block child_block %}
+
+<div class="container">
+    <div class="row justify-content-center">
+        {% if history %}
+        <div class="col-md-4 mt-2 d-none d-md-block">
+            <h4>History</h4>
+            <ul class="history">
+                {% for h in history %}
+                    <li class="history-list">
+                        <span class="history-que">{{ h.question }}</span>
+                        <span class="history-timestamp">{{ h.timeStamp | date:"D, d M, Y g:i A" }}</span>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+        <div class="col-md-8 col-12 p-0">
+            <div class="chat-container">
+            
+                <header>
+                    <span class="header-text">Chat GPT Web</span>
+                </header>
+                <div class="body">
+                    <div class="result">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td class="body-inner">
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <footer>
+                    <form action="" id="queryForm" method="post" name="queryForm">
+                        {% csrf_token %}
+                        <input type="text" name="que" placeholder="Ask anything" autofocus autocomplete="off">
+                        <button>
+                            <i class="fa fa-sharp fa-solid fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </footer>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
