@@ -17,8 +17,6 @@ function logSubmit(event) {
         })
         .then((response) => response.json())
         .then((data) => {
-            console.log(data)
-            console.log(data.data)
             document.getElementById("typing").remove();
             createMessageDiv(data.data)
         });

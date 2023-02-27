@@ -2,12 +2,18 @@ from django.shortcuts import render, redirect
 from django.http import JsonResponse
 import json
 import openai
+import environ
 
 from .models import QuestionModel
 # Create your views here.
 
+# Initialise environment variables
+env = environ.Env()
+environ.Env.read_env()
 
-openai.api_key = "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"
+# print(env('SECRET_KEY'))
+
+openai.api_key = env('SECRET_KEY')
 model_engine = "text-davinci-002"
 
 def index(request):
@@ -33,6 +39,7 @@ def query(request):
                     data_dic['data'] = answer['choices'][0]['text']
                     # data_dic['history'] = QuestionModel.objects.filter(userRef=request.user).order_by('-timeStamp').values()
             except Exception as e:
+                print(e)
                 data_dic['data'] = 'Internal server error'
     return JsonResponse(data_dic, safe=False)
 
